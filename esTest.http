@@ -1,0 +1,14 @@
+# 测试搜索功能
+POST http://localhost:5050/display/search/all
+Content-Type: application/x-www-form-urlencoded
+
+kw=电能&field=title&page=1&size=10
+
+###
+
+# 测试分页功能
+GET http://localhost:5050/display/all?page=100&size=10
+
+###
+GET http://localhost:5050/display/count
+

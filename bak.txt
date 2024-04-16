@@ -1,0 +1,122 @@
+
+POST /_analyze
+{
+  "analyzer": "ik_smart",
+  "text": "申洪建"
+}
+
+GET /patent
+
+
+GET /patent/_search
+{
+  "query": {
+    "match": {
+      "publicNum": "CN108431999A"
+    }
+  }
+}
+
+
+GET /patent/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT /patent
+{
+  "mappings": {
+    "properties": {
+      "all":{
+        "type": "text",
+        "analyzer": "ik_max_word"
+      },
+      "publicNum": {
+        "type": "text",
+        "analyzer": "ik_smart",
+        "copy_to": "all"
+      },
+      "legalStatus": {
+        "type": "keyword",
+        "index": false
+      },
+      "latestLegalStatus": {
+        "type": "keyword",
+        "index": false
+      },
+      "status": {
+        "type": "keyword",
+        "index": false
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+        "copy_to": "all"
+      },
+      "type": {
+        "type": "keyword",
+        "index": false
+      },
+      "abstractText": {
+        "type": "keyword",
+        "index": false
+      },
+      "appliNum": {
+        "type": "keyword",
+        "index": false
+      },
+      "appliDate": {
+        "type": "keyword",
+        "index": false
+      },
+      "publicDate": {
+        "type": "keyword",
+        "index": false
+      },
+      "applicant": {
+        "type": "text",
+        "analyzer": "ik_smart",
+        "copy_to": "all"
+      },
+      "applicantAddress": {
+        "type": "keyword",
+        "index": false
+      },
+      "patentee": {
+        "type": "keyword",
+        "index": false
+      },
+      "patenteeAddress": {
+        "type": "keyword",
+        "index": false
+      },
+      "inventor": {
+        "type": "text",
+        "analyzer": "ik_smart",
+        "copy_to": "all"
+      },
+      "agent": {
+        "type": "keyword",
+        "index": false
+      },
+      "IPC": {
+        "type": "keyword",
+        "index": false
+      },
+      "CPC": {
+        "type": "keyword",
+        "index": false
+      },
+      "NEC": {
+        "type": "keyword",
+        "index": false
+      },
+      "patentDetails": {
+        "type": "keyword",
+        "index": false
+      }
+    }
+  }
+}
